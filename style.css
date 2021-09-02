@@ -1,0 +1,16 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color: #000;
+	background-color: #FFF;
+	text-align:justify;
+}
+.name {
+	color: #a31515;
+}
+.light {
+	color: #00F;
+}
+.comments {
+	color: #008000;
+}

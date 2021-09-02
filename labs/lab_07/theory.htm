@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+<a name="top"></a>
+<h1><b>7. Багатовимірні масиви</b></h1>
+<h2>7.1. Теоретичні відомості</h2>
+<h3><span style="color: #00C">7.1.1. Оголошення багатовимірних масивів. Доступ до елементів</span><br>
+</h3>
+<p>Синтаксис оголошення  змінної матричного типу в мовах С/C++:<br>
+  <span class="light">&lt;тип елементів&gt;</span> &lt;ім&rsquo;я  матриці&gt; [&lt;кількість рядків&gt;][&lt;кількість стовпців&gt;]; <br>
+У цьому оголошенні <span class="light">&lt;тип  елементів&gt;</span> &mdash; будь- який тип  даних, окрім файлового типу; &lt;ім&rsquo;я матриці&gt; &mdash; деякий ідентифікатор; &lt;кількість  рядків&gt; і &lt;кількість  стовпців&gt; &mdash; константи, що  визначає розмірність матриці. Межі діапазону допустимих значень індексів рядків  і стовпців визначаються значеннями від 0 до&nbsp;  &lt;кількість рядків&gt;&ndash;1 та від 0 до &lt;кількість стовпців&gt;&ndash;1. Масиви, що мають більш ніж два виміри,  оголошуються в аналогічний спосіб.<br>
+Доступ до елементів  матриці здійснюється операцією індексування [] за двома індексами, які визначають номер рядка та  номер стовпця елемента. Синтаксис операції індексування є таким: <br>
+&lt;ім&rsquo;я масиву&gt;[&lt;номер  рядка&gt;][&lt;номер стовпця&gt;]<br>
+  <br>
+</p>
+<h3 style="color: #00C">7.1.2. Базові операції обробки двовимірних масивів</h3>
+<p>Перелік базових операцій  над матрицями та їх елементами: </p>
+<ul>
+  <li>створення  нової матриці за заданим алгоритмом;</li>
+  <li>введення та  виведення матриць; </li>
+  <li>пошук  елементів матриці за певним критерієм;</li>
+  <li>визначення,  чи задовольняє матриця або окремі її елементи певній властивості;</li>
+  <li>виконання  певних операцій над компонентами матриць (переставлення рядків і стовпців,  множення матриць тощо).</li>
+</ul>
+<p><strong>Введення матриці:</strong><br>
+  <span class="light">int</span> a[5][5];<br>
+  <span class="light">int</span> main(){<br>
+  <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//зовнішній&nbsp; цикл по рядках</span><br>
+  &nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//внутрішній цикл по стовпцях</span><br>
+  &nbsp;&nbsp;&nbsp; cin&gt;&gt;a[i][j];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//із клавіатури елементи</span><br>
+  }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //вводяться  через символ пробілу</span><br>
+  <br>
+  Під час виведення матриці  переводити курсор на новий рядок слід лише після виведення всіх елементів  поточного рядка:<br>
+  <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++) <br>
+  {<br>
+  &nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; cout&lt;&lt;a[i][j]&lt;&lt;&quot;  &quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //вивести елементи  рядка</span><br>
+  &nbsp; cout&lt;&lt;endl;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //перевести курсор на новий  рядок</span><br>
+  }&nbsp;&nbsp; <br>
+  <br>
+  <strong>Ініціалізація елементів  матриці деякими значеннями:</strong><br>
+  <span class="light">int</span> a[5][5];<br>
+  <span class="light">int</span> main(){<br>
+  &nbsp;&nbsp; <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++) <br>
+  &nbsp;&nbsp;&nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++) <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=10;<span class="comments"> // альтернативи:  a[i][j]=rand()%20;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=i*j; тощо</span><br>
+  }<br>
+  <br>
+  <strong>Пошук значення та  індексів максимального елемента матриці:</strong><br>
+  &nbsp;&nbsp; max=a[0][0];  <span class="comments">//початкове значення максимального елемента</span><br>
+  &nbsp;&nbsp; <span class="light">for</span>(<span class="light"> int</span> i=0;i&lt;n;i++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="light"> for</span>( <span class="light">int</span> j=0;j&lt;n;j++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="light">if</span> ( max &lt; a[i][j])<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; max=a[i][j];&nbsp;<span class="comments"> //запам&rsquo;ятати максимальний елемент</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imax=i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//та його індекси</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jmax=j;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  <br>
+  <strong>Перестановка рядків або  стовпців </strong><br>
+  <span class="light">for</span>(i=0;i&lt;n;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&nbsp;//цикл по рядках</span><br>
+  {<br>
+  &nbsp; tmp=a[i][0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //альтернатива для цілих значень:</span><br>
+  &nbsp; a[i][0]=a[i][4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//a[i][4]^=a[i][0]^=a[i][4]^=a[i][0];</span><br>
+  &nbsp; a[i][4]=tmp;<br>
+  }</p>
+<p><a href="#top">Вверх</a></p>
+</body>
+</html>

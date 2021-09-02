@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+<a name="top"></a>
+<h1><b>6. Одновимірні масиви</b></h1>
+<em>Мета  роботи:</em>
+<ol>
+  <li>
+    Ознайомитися  з особливостями типу масиву;
+  </li>
+  <li>
+    Опанувати технологію застосування масивів даних;
+  </li>
+  <li>
+    Навчитися розробляти алгоритми та програми із застосуванням одновимірних масивів
+  </li>
+</ol>
+<h2>6.1. Теоретичні відомості</h2>
+<p><em>Тип масиву</em>&nbsp;&mdash; це  структурований тип даних, множина допустимих значень котрого складається з усіх  масивів, для яких зафіксовано:</p>
+<ul>
+  <li>розмірність;</li>
+  <li>базовий тип;</li>
+  <li>індексний  тип;</li>
+  <li>множину  значень індексу.</li>
+</ul>
+<p>З точки зору математики  одновимірний масив &mdash; це вектор. Змінну, що матиме тип масиву, можна оголосити з  використанням такого синтаксису:<br>
+  <span class="light">&lt;тип елементів&gt;</span> &lt;ім&rsquo;я  масиву&gt; [&lt;кількість елементів&gt;]; <br>
+  <h3>6.1.1. Основні властивості  масивів:</h3></p>
+<ul>
+  <li>однорідність  &mdash; усі елементи належать одному типу; </li>
+  <li>сталість &mdash;  вимірність масиву задається під час його оголошення і не змінюється протягом  роботи з ним;</li>
+  <li>рівнодоступність  &mdash; спосіб доступу до всіх елементів є однаковим;</li>
+  <li>послідовність  розташування &mdash; усі елементи масиву розташовані в послідовних комірках  оперативної пам&rsquo;яті;</li>
+  <li>індексованість  &mdash; елементи однозначно ідентифікуються своїми індексами;</li>
+  <li>упорядкованість  індексу &mdash; індексний тип має бути простим порядковим типом даних.</li>
+</ul>
+<p><h3>6.1.2. Базовими операціями  обробки масивів є:</h3></p>
+<ul>
+  <li>введення та  виведення масиву;</li>
+  <li>ініціалізація  масиву;</li>
+  <li>копіювання  масиву;</li>
+  <li>пошук  максимального або мінімального елемента;</li>
+  <li>обчислення  узагальнювальних характеристик (сум елементів, їх добутків);</li>
+  <li>пошук  заданого елемента;</li>
+  <li>перестановка  елементів або обмін значеннями між елементами масиву;</li>
+  <li>вставка та  видалення елемента.</li>
+</ul>
+<p>Базові операції обробки  масивів зручно реалізовувати у вигляді функцій, що згодом можуть бути  використані як &laquo;архітектурні блоки&raquo; при розв&rsquo;язанні більш складних задач.<br>
+  <span class="comments">//ввести масив</span><br>
+  <span class="light">for</span>( i=0;i&lt;n;i++)<br>
+  &nbsp;&nbsp;&nbsp; cin&gt;&gt;mas[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+  &nbsp; cout&lt;&lt;&quot;Entered  array&quot;&lt;&lt;endl;</p>
+<p><span class="comments">//вивести масив</span><br>
+  &nbsp; <span class="light">for</span>( i=0;i&lt;n;i++) <br>
+  &nbsp;&nbsp;&nbsp; cout&lt;&lt;mas[i]&lt;&lt;&quot;&nbsp; &quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp; cout&lt;&lt;endl;</p>
+<p><span class="comments">//генерація масиву</span><br>
+  &nbsp;  srand((<span class="comments"><span class="light">unsigned</span></span>)time( NULL )); <span class="comments">//ініціалізація генератора</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">//випадкових чисел</span><br>
+  &nbsp; <span class="light">for</span>(i=0;i&lt;n;++i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//генерація псевдовипадкових чисел в  діапазоні</span><br>
+  &nbsp;&nbsp;&nbsp; mas[i]=rand()%30;&nbsp;&nbsp;&nbsp; <span class="comments"><span class="light">//від 0 до 29</span></span><br>
+  <br>
+  <span class="comments">// пошук максимального елемента</span><br>
+  &nbsp;&nbsp;  max=mark[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//максимальної</span><br>
+  &nbsp;&nbsp;<span class="light"> for</span>(i=1;i&lt;n;i++) <span class="light">//пошук  мінімальної та максимальної оцінок</span><br>
+  &nbsp;&nbsp; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="light"> if</span> (max&lt;mark[i])  max=mark[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//модифікація</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//поточного максимуму</span><br>
+  &nbsp;&nbsp; }<br>
+  <br>
+  <span class="comments">//бульбашкове сортування</span><br>
+  <span class="light">for</span>(i=0;i&lt;n-1;i++)<br>
+  &nbsp;&nbsp;  <span class="light">for</span>(j=i+1;j&lt;n;j++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="light">if</span> (mas[i]&gt;mas[j])<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp=mas[i];<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mas[i]=mas[j];<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mas[j]=tmp;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p><p><a href="#top">Вверх</a></p>
+</body>
+</html>

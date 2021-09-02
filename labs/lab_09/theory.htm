@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+<a name="top"></a>
+<h1><b>9. Обробка рядків в мові C</b>
+</h1>
+<h2>9.1. Теоретичні відомості<br></h2>
+<h3><span style="color: #00C">9.1.1. Визначення рядка</span></h3>
+<p>Рядок - це масив  символів, який закінчується символом кінця рядка '\0'. Значенням символа є  ціле число, яке є кодом таблиці символів ASCII. Символ відображається у  одинарних лапках, наприклад: 'z'. Кожний символ в оперативній пам'яті займає один  байт. Рядок характеризується довжиною, яка дорівнює кількості символів, та  обсягом пам'яті. Обсяг пам'яті, який займає рядок, на одиницю більший за  довжину рядка за рахунок символа кінця рядка '\0'. <br>
+Кожний символ рядка має  свій індекс. Доступ до символа рядка здійснюється за допомогою операції [ ].  Рядок і всі його символи мають одне ім'я. При оголошенні рядка задаються ім'я  та кількість елементів рядка. Довжина рядка визначається читанням символа кінця  рядка '\0' під час введення рядка. Для позначення нового  рядка використовується символ '\n'. <br>
+Рядок доступний через  покажчик (адресу) на перший символ у рядку. Таким чином, ім'я рядка - це  покажчик на перший символ.<br>
+<br><strong>Формати оголошення рядка:</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+<span class="light">char</span> ім'я_рядка[кількість  символів];<br>
+<span class="light">char</span> *ім'я_рядка; </p>
+<p>Рядок можна  ініціалізувати у процесі оголошення через покажчик на рядок.<br>
+  Приклад: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+  <span class="light">char</span> string[50];<br>
+<span class="light">сha</span>r * pointer=&quot;mastering  Visual C++&quot;; <span class="comments">//покажчик на рядок </span></p>
+<p><strong>Рядкові (літеральні)  константи</strong> на відміну від значення символа записуються у подвійних лапках.<br>
+  У процесі оголошення  рядка як масиву символів останній повинний мати такий розмір, щоб зберігати  рядок і символ кінця рядка '\0'. Якщо рядок більший за масив символів, то символи,  які виходять за його межі, будуть змінювати дані, що знаходяться в наступних за  масивом комірках пам'яті. <br>
+  Рядки можуть  компонуватися у <strong>масив рядків та утворювати текст.</strong> Під час оголошення масиву  рядків необхідно визначити два індекси: кількість рядків і максимальну  кількість символів у одному рядку.<br>
+  <strong>Приклад:</strong> <span class="light">char</span> text[5][25]; </p>
+<p><strong>Уведення та виведення  рядка</strong> здійснюється за допомогою функцій puts(<span class="light">char</span>* s); gets(<span class="light">char</span> *s); без використання циклів. Параметром функцій ведення та виведення є  покажчик на рядок. Якщо вводити рядки за допомогою класів потоків через  операцію &gt;&gt;, то символи рядка вводяться до першого символа пропуску.  Символи рядка після символа пропуску ігноруються.<br>
+<br><font color= Crimson><strong>Для рядків не визначені  операції присвоєння (=) та порівняння (&gt;, &lt;, ==, !=).</strong></font> Для виконання  подібних дій використовуються відповідні функції, прототипи яких визначені у  файлі <span class="name">string.h</span>. Перелік деяких функцій обробки рядків подано у табл. 9.1.<br>
+
+<h3><span style="color: #00C">9.1.2. Деякі функції обробки рядків</span></h3>
+<p>Умовні позначення:  destination - рядок призначення; source - початковий рядок; maxlen - максимальна  довжина рядка (підрядка); n - кількість символів; s, s1, s2 - поточні рядки;  с -  символ для пошуку; endptr - помилка під час перетворення рядка; radix -  основа системи числення.</p>
+<em>Таблиця  9.1</em> <strong>Прототипи функцій з файлів</strong> <span class="name"><strong>string.h, stdlib.h </strong></span>
+<p><table border="1">
+  <tr> 
+    <td style="text-align: center"><strong>Назва </strong></td>
+    <td style="text-align: center"><strong>Призначення</strong></td>
+    <td style="text-align: center"><strong>Формат</strong></td>
+    <td style="text-align: center"><strong>Значення, що повертається </strong></td>
+  </tr>
+  <tr> 
+    <td>strupr</td>
+    <td>Перетворення малих літер на великі </td>
+    <td><span class="light">char</span> *strupr(<span class="light">char</span> *s); </td>
+    <td>Покажчик на змінений рядок </td>
+  </tr>
+  <tr> 
+    <td>strlwr </td>
+    <td>Перетворення великих літер на малі </td>
+    <td><span class="light">char</span> *strlwr(<span class="light">char</span> *s); </td>
+    <td>Покажчик на змінений рядок </td>
+  </tr>
+  <tr> 
+    <td>strcpy</td>
+    <td>Копіювання рядка</td>
+    <td><span class="light">char</span> *stpcpy(<span class="light">char</span> *destination, <span class="light">const</span> <span class="light">char</span> *source); </td>
+    <td>Покажчик на рядок-копію </td>
+  </tr>
+  <tr> 
+    <td>strncpy</td>
+    <td>Копіювання частини рядка</td>
+    <td><span class="light">char</span> *strncpy(<span class="light">char</span> *destination, <span class="light">const</span> <span class="light">char</span> *source,  size_t maxlen);</td>
+    <td>Покажчик на рядок-копію </td>
+  </tr>
+  <tr> 
+    <td>strlen </td>
+    <td>Довжина рядка</td>
+    <td>size_t strlen(<span class="light">const char</span> *s);</td>
+    <td>Кількість символів у рядку без урахування символа '\0'</td>
+  </tr>
+  <tr> 
+    <td>strcat </td>
+    <td>Конкатенація рядків(об&rsquo;єднання)</td>
+    <td><span class="light">char</span> *strcat(<span class="light">char</span> *destination, <span class="light">const char</span> *source); </td>
+    <td>Покажчик на об&rsquo;єднаний рядок</td>
+  </tr>
+  <tr> 
+    <td>strncat</td>
+    <td>Додавання частини рядка до іншого рядка</td>
+    <td><span class="light">char</span> *strncat(<span class="light">char</span> *destination, <span class="light">const char</span> *source,  size_t maxlen);</td>
+    <td>Покажчик на об&rsquo;єднаний рядок</td>
+  </tr>
+  <tr> 
+    <td>strtod</td>
+    <td>Перетворення рядка у число типу <span class="light">double</span></td>
+    <td><span class="light">double</span> strtod(<span class="light"><span class="light"><span class="comments"><span class="light">const char</span></span></span></span> *s, <span class="light"><span class="name"><span class="light">char</span></span></span> **endptr);</td>
+    <td>Число типу <span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>strtol</td>
+    <td>Перетворення рядка у число типу <span class="light">long</span></td>
+    <td><span class="light">long</span> strtol(<span class="light">const char</span> *s, <span class="light">char</span> **endptr, <span class="light">int</span> radix);</td>
+    <td>Число типу <span class="light">long </span></td>
+  </tr>
+  <tr> 
+    <td>strrchr</td>
+    <td>Пошук останнього входження заданого символа </td>
+    <td><span class="light">char</span> *strrchr(<span class="light">char</span> *s, <span class="light">int</span> c); </td>
+    <td>Покажчик на останнє місцезнаходження заданого символа </td>
+  </tr>
+  <tr> 
+    <td>strstr</td>
+    <td>Пошук першого входження заданого підрядка </td>
+    <td><span class="light">char</span> *strstr(<span class="light">char</span> *s1, <span class="light">const char</span> *s2); </td>
+    <td>Покажчик на перше місцезнаходження заданого символа </td>
+  </tr>
+  <tr> 
+    <td>strcspn</td>
+    <td>Пошук першого сегмента, що не містить символів з  заданого набору символів </td>
+    <td>size_t strcspn(<span class="light">const char</span> *s1, <span class="light">const char</span> *s2); </td>
+    <td>Довжина початкової ланки s1, яка не містить символи з  рядка s2 </td>
+  </tr>
+  <tr> 
+    <td>strcmpi</td>
+    <td>Порівняння рядків без розбіжності у регістрах літер </td>
+    <td><span class="light">int</span> strcmpi(<span class="light">const char</span> *s1, <span class="light">const char</span> *s2); </td>
+    <td><p>Значення 0, якщо рядки рівні, значення менше за 0,  якщо перший рядок менший за другий, значення більше за 0, якщо перший рядок  більший за другий </p></td>
+  </tr>
+  <tr> 
+    <td>strcmp</td>
+    <td>Порівняння рядків </td>
+    <td><span class="light">int</span> strcmp(<span class="light">const char</span> *s1,<span class="light"> const char</span> *s2); </td>
+    <td>Значення 0, якщо рядки рівні, значення менше за 0,  якщо перший рядок менший за другий, значення більше за 0, якщо перший рядок  більший за другий</td>
+  </tr>
+  <tr>
+    <td>strncmp </td>
+    <td>Порівняння частини рядка з частиною іншого рядка </td>
+    <td><span class="light">int</span> strncmp(<span class="light">const char</span> *s1, <span class="light">const char </span>*s2, size_t n); </td>
+    <td>Значення 0, якщо рядки рівні, значення менше за 0,  якщо перший рядок менший за другий, значення більше за 0, якщо перший рядок  більший за другий </td>
+  </tr>
+  <tr>
+    <td>strncmpi</td>
+    <td>Порівняння частин рядків без розбіжності у регістрах  літер </td>
+    <td><span class="light">int</span> strncmpi(<span class="light">const char</span> *s1, <span class="light">const char</span> *s2, size_t  n); </td>
+    <td>Значення 0, якщо рядки рівні, значення менше за 0,  якщо перший рядок менший за другий, значення більше за 0, якщо перший рядок  більший за другий </td>
+  </tr>
+  <tr>
+    <td>strdup</td>
+    <td>Копіювання рядка у створювану область пам&rsquo;яті </td>
+    <td><span class="light">char</span> *strdup(<span class="light">const char</span> *s); </td>
+    <td>Покажчик на область пам&rsquo;яті, що містить копію рядка </td>
+  </tr>
+  <tr>
+    <td>strrev</td>
+    <td>Перевертання рядка </td>
+    <td><span class="light">char</span> *strrev(<span class="light">char</span> *s); </td>
+    <td>Покажчик на рядок, що змінився </td>
+  </tr>
+  <tr>
+    <td>strnset</td>
+    <td>Заміна заданої кількості символів на вказаний символ </td>
+    <td><span class="light">char</span> *strnset(<span class="light">char</span> *s,<span class="light"> int</span> ch, size_t n); </td>
+    <td>Покажчик на рядок, що змінився </td>
+  </tr>
+  <tr>
+    <td>strtok</td>
+    <td>Визначення лексем, відділених роздільниками </td>
+    <td><span class="light">char</span> *strtok(<span class="light">char</span> *source, <span class="comments"><span class="light">const char</span></span> *separator); </td>
+    <td>Покажчик на знайдену лексему. У процесі повторного  виклику функції для пошуку нових лексем перший параметр функції має бути NULL. </td>
+  </tr>
+  <tr>
+    <td>atoi </td>
+    <td>Перетворення рядка у ціле число </td>
+    <td><span class="light">#include</span> <span class="name">&lt;stdlib.h&gt;</span><br>
+    <span class="light">int</span> atoi(<span class="light">const char</span> *s); </td>
+    <td>Число, що утворилося, або 0, якщо перетворення  неможливе </td>
+  </tr>
+  <tr>
+    <td>atof </td>
+    <td>Перетворення рядка у дійсне число </td>
+    <td><span class="light">#include</span> <span class="name">&lt;math.h&gt;</span><br>
+    <span class="light">double</span> atof(<span class="light">const char</span> *s); </td>
+    <td>Число, що утворилося, або 0, якщо перетворення  неможливе </td>
+  </tr>
+  <tr>
+    <td>itoa</td>
+    <td>Перетворення цілого числа у рядок </td>
+    <td><span class="light">#include</span> <span class="name">&lt;stdlib.h&gt;</span><br>
+    <span class="light">char</span> *itoa(<span class="light">int</span> value, <span class="light">char</span> *string, <span class="light">int</span> radix); </td>
+    <td>Покажчик на рядок</td>
+  </tr>
+</table>
+<p><a href="#top">Вверх</a></p>
+</body>
+</html>

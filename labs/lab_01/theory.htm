@@ -1,0 +1,613 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+<a name="top"></a><h1><b>1. Типи даних. Функції введення - виведення. Обчислення виразів</b>
+</h1>
+<em>Мета  роботи:</em>
+<ol>
+  <li>
+    Вивчити  особливості використання&nbsp; вбудованих типів  даних: <span class="light">char</span>,&nbsp; <span class="light">int</span>,&nbsp; <span class="light">long</span>, <span class="light">short</span>, <span class="light">float</span>, <span class="light">double</span>, <span class="light">unsigned char</span>,  <span class="light">unsigned int</span>, <span class="light">unsigned long</span>.
+  </li>
+  <li>
+    Вивчити  особливості використання функцій введення - виведення.
+  </li>
+  <li>
+    Навчитися  застосовувати стандартні математичні функції.
+  </li>
+</ol>
+<h2>1.1. Теоретичні відомості<br></h2>
+<h3><span style="color: #00C">1.1.1. Структура програми</span><br>
+</h3>
+<p>Програма складається з директив 
+  препроцесора, функцій, коментарів. <br>
+</p>
+<p><i><b>Препроцесор</b></i> 
+  - програма, що є складовою частиною компілятора і виконує підключення стандартних 
+  або особистих файлів користувача до основної програми, формування макровизначень, 
+  умовну компіляцію тощо.
+</p>
+<p>Розрізнюють директиви:
+<table border = "0">
+  <tr> 
+    <td width = "155">- включення</td>
+    <td width="155"> 
+      <p><span class="light">#include</span> <span class="name">&lt;ім'я.h&gt;</span><br>
+        <span class="light">#include</span><span class="name"> &quot;ім'я.h&quot;</span></td>
+  </tr>
+  <tr> 
+    <td> - макровизначення</td>
+    <td><span class="light">#define</span> ім'я значення</td>
+  </tr>
+  <tr> 
+    <td> - умовної компіляції </td>
+    <td> 
+      <p class="light">#if вираз<br>
+        #else<br>
+        #elif вираз<br>
+        #endif
+    </td>
+  </tr>
+</table>
+<p>Директиву формату <span class="light">#include</span><span class="name"> &lt;ім'я.h&gt;</span> 
+  використовують для включення стандартних файлів заголовків з каталогу lib до 
+  програми користувача. Ці файли містять прототипи функцій, які користувач може 
+  використовувати у власній програмі як стандартні.<br>
+</p>
+<p>Директиву формату <span class="light">#include</span> <span class="name">&quot;ім'я.h&quot;</span> використовують для включення особистих файлів користувача.<br>
+  <br>
+</p>
+  <h3 style="color: #00C">1.1.2. Структура функцій програми</h3>
+<p><strong>Функція</strong> - це іменована частина  програми, що&nbsp; виконує логічно завершений  набір дій та може викликатися з будь-якого місця програми, якщо це відповідає  синтаксису програми. Функція складається з заголовка і тіла. </p>
+<p>Формат функції  такий:</p>
+<p><span class="light">тип_ значення _що_повертається</span> <em>ім'я_функції</em> (<em>параметри</em>) <span class="comments">//заголовок</span><br>
+  {<span class="comments"> //тіло функції</span> }<br>
+</p>
+<p>Одна з функцій програми 
+  має ім'я <em>main()</em> і є точкою входження до програми. З неї починається виконання 
+  програми. Якщо параметри відсутні, то в заголовку функції  записуються тільки круглі дужки. Наприклад,</p>
+<p><span class="light"><i>тип_ значення _що_повертається</i></span><em> main()</em> { ... <span class="comments">//тіло функції</span> }<br>
+</p>
+<p>Тіло функції містить  оголошення констант, змінних і оператори відповідно до алгоритму. Оголошення  можуть бути в довільному місці, але до першого звертання до змінної.<br>
+  <br>
+</p>
+<h3 style="color: #00C">1.1.3. Правила синтаксису</h3>
+<p>При написанні програми дотримуються 
+  синтаксичних правил, використовуючи такі символи: 
+</p>
+<table border="0">
+  <tr> 
+    <td width="30"><b>{ }</b></td>
+    <td width="850"> - операторні дужки. Вони  об&rsquo;єднують декілька операторів в один блок, визначають початок і кінець блоку  та функції;</td>
+  </tr>
+  <tr> 
+    <td><b>;</b></td>
+    <td> - кінець оператора; </td>
+  </tr>
+  <tr> 
+    <td><b>,</b></td>
+    <td> - роздільник при перерахуванні програмних об&rsquo;єктів;</td>
+  </tr>
+  <tr> 
+    <td><b>( )</b></td>
+    <td> - містять параметри функцій або умови логічних та циклічних операторів;</td>
+  </tr>
+  <tr> 
+    <td><b>/* */</b></td>
+    <td> - містять коментар, що розміщується на декількох рядках;</td>
+  </tr>
+  <tr> 
+    <td><b>//</b></td>
+    <td> - коментар, що розміщується в одному рядку, використовується в  С++.</td>
+  </tr>
+</table>
+<br>
+
+  <h3><span style="color: #00C">1.1.4. Типи даних</span><br>
+</h3>
+<p>Усі дані поділяються на змінні та константи. Кожна змінна  має свій ідентифікатор або своє ім’я. Кожне ім’я змінної відповідає певній області оперативної пам’яті комп’ютера. Кожна змінна характеризується іменем, типом, обсягом оперативної пам’яті та діапазоном значень.<br>
+</p>
+<p><i>Таблиця 1.1.</i> <strong>Характеристика типів змінних</strong></p>
+<table border="1px">
+  <tr> 
+    <td width="115"><strong>Тип</strong></td>
+    <td width="235"><strong>Назва типу</strong></td>
+    <td width="220"><strong>Обсяг оперативної пам’яті</strong></td>
+    <td width="220"><strong>Діапазон значень</strong></td>
+  </tr>
+  <tr> 
+    <td><span class="light">char</span></td>
+    <td>Цілий тип </td>
+    <td>8 бітів</td>
+    <td>-128 ... +127</td>
+  </tr>
+  <tr> 
+    <td><span class="light">signed char</span></td>
+    <td>Цілий із знаком </td>
+    <td>8 бітів</td>
+    <td>-128 ... +127</td>
+  </tr>
+  <tr> 
+    <td><span class="light">unsigned char</span></td>
+    <td>Беззнаковий цілий</td>
+    <td>8 бітів</td>
+    <td>0 ... 255</td>
+  </tr>
+  <tr> 
+    <td><span class="light">short int</span></td>
+    <td>Цілий короткий</td>
+    <td>16 бітів</td>
+    <td>-32768 ... +32767</td>
+  </tr>
+  <tr> 
+    <td><span class="light">unsigned int</span></td>
+    <td>Беззнаковий цілий </td>
+    <td>32 бітів</td>
+    <td>0 ... 65535</td>
+  </tr>
+  <tr> 
+    <td><span class="light">int</span></td>
+    <td>Цілий </td>
+    <td>32 бітів</td>
+    <td>-2147483648 ... +2147483647</td>
+  </tr>
+  <tr> 
+    <td><span class="light">long int</span></td>
+    <td>Цілий довгий </td>
+    <td>32 бітів</td>
+    <td>-2147483648 ... +2147483647</td>
+  </tr>
+  <tr> 
+    <td><span class="light">unsigned long</span></td>
+    <td>Цілий довгий беззнаковий</td>
+    <td>32 бітів</td>
+    <td>0 ... +429496729</td>
+  </tr>
+  <tr> 
+    <td><span class="light">float</span></td>
+    <td>З плаваючою крапкою</td>
+    <td>32 бітів</td>
+    <td>3.4 *10^-38 ... 3.4 *10^38</td>
+  </tr>
+  <tr> 
+    <td><span class="light">double</span></td>
+    <td>З плаваючою крапкою довгий</td>
+    <td>64 бітів</td>
+    <td>1.7 *10^-308 ... 1.7 *10^308</td>
+  </tr>
+  <tr> 
+    <td><span class="light">long double</span></td>
+    <td>З плаваючою крапкою довгий</td>
+    <td>80 бітів</td>
+    <td>3.4 *10^-4932 ... 3.4 *10^4932</td>
+  </tr>
+</table><br>
+
+<p>Приклад оголошення  змінних: <span class="light">int</span> a; <span class="light">float</span> b,c; <span class="light">char</span> litera; <span class="light">int</span> index=1;</p>
+<h3><br>
+  <b style="color: #00C">1.1.5. Функції введення та виведення даних</b><br>
+  
+</h3>
+<p>Для виконання дій над даними користувача необхідно їх ввести з клавіатури. Для цього використовується стандартний потік вводу stdin. Для відображення результатів на екрані необхідно застосовувати стандартний потік виводу stdout. Введення та виведення даних здійснюється за допомогою функцій введення та виведення, формати яких приведені у таблиці  1.2.
+</p>
+<p><i>Таблиця 1.2.</i> <strong>Функції введення та виведення</strong></p>
+<table border="1">
+  <tr> 
+    <td width="75" style="text-align: center"> 
+    <strong>Функція</strong></td>
+    <td width="175" style="text-align: center"> 
+      <b>Формат введення та виведення</b>
+    </td>
+    <td width="330" style="text-align: center"> 
+      <b>Призначення</b>
+    </td>
+    <td width="219" style="text-align: center"> 
+      <b>Приклад</b>
+    </td>
+    <td width="150" style="text-align: center"> 
+      <b>Заголовний файл</b>
+    </td>
+    <td width="330" style="text-align: center"> 
+      <b>Результат, що повертається функцією</b>
+    </td>
+  </tr>
+  <tr> 
+    <td>_сprintf()</td>
+    <td><span class="light">int</span> _cprintf (формат, 
+      apг1, apг2, ...);</td>
+    <td> Виведення на консоль значень аргументів згідно з форматом виведення. </td>
+    <td> <span class="light">int</span> с; <br>
+    _cprint("%d",c);</td>
+    <td class="name"> сonio.h</td>
+    <td>Значення типу int, 
+      дорівнює кількості виве-дених символів</td>
+  </tr>
+  <tr> 
+    <td> _cscanf()</td>
+    <td> <span class="light">int</span> _cscanf (формат, 
+      арг1,aрг2,...); </td>
+    <td>Введення з консолі значень змінних згідно з форматом і присвоєння значень аргументам. Аргументами є адреси змінних в оперативній пам’яті. </td>
+    <td><span class="light">int</span> a; <span class="light">char</span> NAME[5]; <br>
+      _cscanf (&quot;%s&quot;, Name); <br>
+      _cscanf (&quot;%d&quot;, &amp;a); </td>
+    <td class="name">сonio.h </td>
+    <td>Значення типу int дорівнює кількості змінних, що отримали значення. При невдалому скануванні повертається значення EOF</td>
+  </tr>
+  <tr> 
+    <td> _cputs()</td>
+    <td> <span class="light">int</span> _cputs (<span class="light">const 
+      char</span> *str);</td>
+    <td> Виведення на консоль рядка символів. Не додається символ кінця рядка ‘\0’. Borland C++ використовує cputs()</td>
+    <td> <span class="light">char</span> NAME[5];<br>
+_cputs(NAME);<br>
+    _cputs(&quot;Hello&quot;);</td>
+    <td class="name"> conio.h </td>
+    <td>У випадку успіху повертається 0</td>
+  </tr>
+  <tr> 
+    <td> _cgets()</td>
+    <td> <span class="light">char</span> *_cgets (<span class="light">char</span> *str); </td>
+    <td>Введення з консолі послідовності символів до символу “кінець рядка” (‘\0’)</td>
+    <td> <span class="light">char</span> a[5];<br>
+_cgets(a); </td>
+    <td class="name">conio.h </td>
+    <td>Значення типу int, що дорівнює покажчику на символ з індексом 2 (str[2]). </td>
+  </tr>
+  <tr> 
+    <td> getch()</td>
+    <td> <span class="light">int</span> getch(<span class="light">void</span>); </td>
+    <td>Введення символу з консолі без відображення на екрані. Не використовується для Win32</td>
+    <td> <span class="light">int</span> c; <br>
+    c=getch(); </td>
+    <td class="name">conio.h</td>
+    <td> Код введеного з клавіатури символу</td>
+  </tr>
+  <tr> 
+    <td> putch()</td>
+    <td> <span class="light">int</span> putch(<span class="light">int</span> c);</td>
+    <td>Виведення на консоль символу.  Не використовується для Win32</td>
+    <td> putch('В'); <br>
+    putch(getch()); </td>
+    <td class="name">conio.h</td>
+    <td> Повертається надрукований символ або значення EOF при невдалому виведенні.</td>
+  </tr>
+  <tr> 
+    <td> getchar()</td>
+    <td> <span class="light">int</span> getchar(<span class="light">void</span>); </td>
+    <td>Введення символу із стандартного вхідного файлу stdin. </td>
+    <td><span class="light">int</span> ch; <br>
+    ch=getchar(); </td>
+    <td class="name">stdio.h </td>
+    <td>Повертається код введеного символу або значення EOF </td>
+  </tr>
+  <tr> 
+    <td> putchar()</td>
+    <td> <span class="light">int</span> putchar(<span class="light">int</span> c); </td>
+    <td>Повертається символ або значення EOF при невдалому виводу</td>
+    <td>putchar(getch());</td>
+    <td class="name"> stdio.h</td>
+    <td>Повертається символ або значення EOF при невдалому виводу</td>
+  </tr>
+  <tr> 
+    <td> gets() </td>
+    <td><span class="light">char</span> *gets (<span class="light">char</span> *s); </td>
+    <td>Введення із стандартного вхідного файлу stdin рядка і розміщення його по покажчику *s</td>
+    <td> <span class="light">char</span> line[80]; <br>
+    gets(line); </td>
+    <td class="name">stdio.h  </td>
+    <td> Покажчик на перший символ рядка або NULL при невдалому введенні</td>
+  </tr>
+  <tr> 
+    <td> puts()</td>
+    <td> <span class="light">int</span> puts (<span class="light">const char</span> *s);</td>
+    <td> Виведення у стандартний вихідний файл stdout рядка  і доповнення його символом нового рядка ‘\n’ </td>
+    <td> <span class="comments"><span class="light"><span class="name"><span class="light">char</span></span></span></span> b[80]; <br>
+    puts(b); </td>
+    <td class="name">stdio.h  </td>
+    <td> Повертається невід’ємне значення або EOF при невдалому виведенні</td>
+  </tr>
+  <tr> 
+    <td> рrintf()</td>
+    <td> <span class="light">int</span> printf (<span class="light">const 
+      char</span> *format, argument, ...); </td>
+    <td>Виведення у стандартний вихідний файл stdout  значень аргументів згідно з форматом виведення</td>
+    <td><span class="light">int</span> a; <span class="light">float</span> b; <br>
+      <span class="light">char</span> str[10];<br>
+      printf(&quot;%d %f %s&quot;, a,b,str); </td>
+    <td class="name">stdio.h </td>
+    <td>Повертається кількість виведених байтів або від’ємне значення при невдалому виведенні</td>
+  </tr>
+  <tr> 
+    <td> scanf()</td>
+    <td> <span class="light">int</span> scanf (<span class="light">const char</span> *format, address, ...); </td>
+    <td> Введення із стандартного вхідного файлу значень змінних згідно з форматом і розміщення їх за вказаними адресами у оперативній пам’яті.</td>
+    <td> <span class="light">char</span> AME[20]; <span class="light">int</span> a; <br>
+      scanf(&quot;%s&quot;, AME); <br>
+      scanf(&quot;%d&quot;, &amp;a); </td>
+    <td class="name"> stdio.h</td>
+    <td> Повертається кількість змінних, що отримали значення. При невдалому скануванні повертається значення EOF  </td>
+  </tr>
+  <tr> 
+    <td> sprintf()</td>
+    <td> <span class="light">int</span> sprintf (<span class="light">char</span> *str, <span class="light">const char</span> *format, argument, ...);</td>
+    <td> Розміщення у рядку символів значень аргументів із пам’яті згідно з шаблоном. Використовується для перетворення типів даних </td>
+    <td><p><span class="light">char</span> str[3];<br>
+    sprintf(str,&quot;%d&quot;, 
+      13);</p></td>
+    <td class="name">stdio.h</td>
+    <td> Повертається кількість виведених символів. </td>
+  </tr>
+  <tr> 
+    <td> sscanf()</td>
+    <td> <span class="light">int</span> sscanf (рядок, фор-мат, 
+      арг1, ...); </td>
+    <td>Читання із рядка у адреси пам’яті згідно з форматом шаблонів. Використовується для перетворення типів </td>
+    <td><span class="light">int</span> a; <span class="light">float</span> b; <span class="light">char</span> str[5]; <br>
+      sscanf(str,&quot;%d%&quot;, &amp;a, &amp;b); </td>
+    <td class="name">stdio.h</td>
+    <td> Повертається кількість введених символів або EOF при невдалому введенні</td>
+  </tr>
+</table>
+<br>
+<p>Специфікації форматів, що 
+  використовуються у функціях форматного введення та виведення даних, приводяться 
+  у табл. 1.3.<br>
+  <br>
+  <i>Таблиця 1.3.</i> <strong>Специфікації форматів</strong></p>
+<table border="1">
+  <tr> 
+    <td width="70"><b>Функція</b></td>
+    <td width="280"><b>Формат</b></td>
+  </tr>
+  <tr> 
+    <td>scanf()</td>
+    <td>%[*] [ширина] тип</td>
+  </tr>
+  <tr> 
+    <td>printf()</td>
+    <td>% [прапорець] [ширина] [.точність] тип</td>
+  </tr>
+</table>
+<p><b>Значення полів формату:</b>
+<table border="0">
+  <tr> 
+    <td width="85">%</td>
+    <td width="1145">- символ формату.</td>
+  </tr>
+  <tr> 
+    <td>*</td>
+    <td>- ігнорується поле вводу, дані не зберігаються.</td>
+  </tr>
+  <tr> 
+    <td>тип</td>
+    <td>- символ, який визначає типи даних, що вводяться та виводяться.</td>
+  </tr>
+  <tr> 
+    <td>прапорець</td>
+    <td>- символи, які управляють вирівнюванням виводу знаків, пропусків, десяткових точок, восьмирічних та шістнадцятирічних префіксів. </td>
+  </tr>
+  <tr> 
+    <td>ширина</td>
+    <td>- параметр, який визначає мінімальне число виводу символів. </td>
+  </tr>
+  <tr> 
+    <td>точність</td>
+    <td>- параметр, який визначає максимальне число символів, що друкуються  для цілих чисел, та кількість цифр після десяткової точки для даних типу float, double.</td>
+  </tr>
+</table>
+<br>
+  <i>Таблиця 1.4.</i> <strong>Специфікації деяких типів<br>
+  <br>
+  </strong>
+<table border="1">
+  <tr> 
+    <td width="145"><b>Символ формату</b></td>
+    <td width="435"><b>Тип аргументу</b></td>
+  </tr>
+  <tr> 
+    <td>c</td>
+    <td><span class="light">char</span></td>
+  </tr>
+  <tr> 
+    <td>d</td>
+    <td><span class="light">int</span></td>
+  </tr>
+  <tr> 
+    <td>i</td>
+    <td><span class="light">int</span> (десятковий, восьмиричний, шістнадцятковий)</td>
+  </tr>
+  <tr> 
+    <td>e, f</td>
+    <td><span class="light">float</span>, <span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>s</td>
+    <td>Рядок символів</td>
+  </tr>
+  <tr> 
+    <td>n</td>
+    <td>Покажчик на цілий 
+      тип</td>
+  </tr>
+  <tr> 
+    <td>p</td>
+    <td>Покажчик на тип <span class="light">void</span> (задає сегмент та зміщення)</td>
+  </tr>
+  <tr> 
+	<td colspan="2"><strong>Специфікації прапорців у функціях форматного виведення</strong></td>
+  </tr>
+  <tr> 
+    <td>+</td>
+    <td>Виведення знаків +/-, якщо використовується знаковий тип</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Вирівнювання даних зліва</td>
+  </tr>
+</table>
+<br>
+<p>За допомогою об'єктів класів потоків здійснюють введення та виведення, використовуючи операції лівого та правого зсуву згідно з табл. 1.5.</p>
+<p><i>Таблиця 1.5.</i> <strong>Використання класів потоків для операцій вводу, виводу</strong></p>
+<table border="1">
+  <tr> 
+    <td width="70"> 
+      <b>Формат</b>
+    </td>
+    <td width="415"><strong>Призначення</b></strong></td>
+    <td width="200"><b>Приклад</b></td>
+    <td width="150"><b>Заголовний файл</b></td>
+  </tr>
+  <tr> 
+    <td> cin &gt;&gt; </td>
+    <td>Зумовлений потік введення, >> - операція правого зсуву</td>
+    <td> <span class="light"><span class="comments"><span class="light">char</span></span></span> Name[20]; <br>
+      cin 
+      &gt;&gt; Name; </td>
+    <td><span class="name">istream</span><br>
+    <span class="name">iostream</span></td>
+  </tr>
+  <tr> 
+    <td> cout &lt;&lt; 
+    </td>
+    <td> Зумовлений потік виведення, << - операція лівого зсуву</td>
+    <td> <span class="light">int</span> c; <span class="light">char</span> f; <br>
+      cout&lt;&lt; 
+      &quot;Hello&quot;; cout&lt;&lt;c&lt;&lt;f;</td>
+    <td> <p><span class="name">ostream</span><br>
+        <span class="name">iostream</span></p></td>
+  </tr>
+</table>
+<br>
+<p>Для виконання тригонометричних, логарифметичних обчислень застосовують функції С++, перелік яких подано у табл. 1.6.</p>
+<p><i>Таблиця 1.6.</i> <strong>Деякі математичні функції</strong> 
+  <br>
+  <br>
+<table border="1">
+  <tr> 
+    <td width="70"><b>Функція</b></td>
+    <td width="180"><b>Призначення </b></td>
+    <td width="115"><b>Приклад</b></td>
+    <td width="90"><b>Бібліотека</b></td>
+    <td width="60"><b>Тип</b></td>
+  </tr>
+  <tr> 
+    <td>abs</td>
+    <td>Модуль аргументу</td>
+    <td>abs(c); abs(-b);</td>
+    <td><span class="name">stdlib.h</span></td>
+    <td><span class="light">int</span></td>
+  </tr>
+  <tr> 
+    <td>acos</td>
+    <td>Арккосинус</td>
+    <td>acos(0.5);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>asin</td>
+    <td>Арксинус </td>
+    <td>asin(1);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>atan</td>
+    <td>Арктангенс</td>
+    <td>atan(1.0);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>cos</td>
+    <td>Косинус</td>
+    <td>cos(3.14);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>exp</td>
+    <td>Експонента</td>
+    <td>exp(1);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>log</td>
+    <td>Натуральний логарифм</td>
+    <td>log(exp(3);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>log10</td>
+    <td>Десятковий логарифм</td>
+    <td>log10(100);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>pow</td>
+    <td>Степінь числа x^y</td>
+    <td>pow(x,y);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>sin </td>
+    <td>Синус</td>
+    <td>sin(3.14);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>sqrt</td>
+    <td>Корінь квадратний</td>
+    <td>sqrt(144);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+  <tr> 
+    <td>tan</td>
+    <td>Тангенс</td>
+    <td>tan(3.14);</td>
+    <td><span class="name">math.h</span></td>
+    <td><span class="light">double</span></td>
+  </tr>
+</table>
+<br>
+<br>
+<strong>Особливості використання функцій введення та виведення</strong>
+<ol>
+  <li>
+  При введенні та виведенні даних за допомогою класів потоків з рядка, який має символи пропусків, вводяться та виводяться символи тільки до першого символу пропуску.
+  </li>
+  <li>
+  При введенні даних потоком використовується стандартний потік вводу stdin, при виведенні потокових даних використовується стандартний потік виводу  stdout.
+  </li>
+  <li>
+  Після введення символу за допомогою  функцій getchar(), getche(), getch() необхідно очищати буфер клавіатури, інакше наступний ввід даних буде неможливий (необхідно опрацювати введення символу ENTER, використовуючи функцію fflush(stdin)).
+  </li>
+  <li>
+  При введенні символу без відображення його на екрані натискувати клавішу ENTER після символу непотрібно.
+  </li>  
+  <li>
+  Для переведення курсору на новий рядок в процесі виведення даних на екран використовується ESC-послідовність ‘\n’.
+  </li>
+  <li>
+  Для отримання кінця рядка використовується ESC-послідовність ‘\0’.
+  </li>
+  <li>
+  Для виконання табуляції курсору в процесі виведення даних на екран використовується ESC-послідовність‘\t’.
+  </li>
+  <li>
+  При використанні функцій консольного виводу курсор не переводиться на початок наступного рядка, тому користувач повинен використовувати ESC-послідовності '\n' - перевід курсору на новий рядок, '\r' - перевід курсору на початок рядка.
+  </li>
+</ol>
+<p><a href="#top">Вверх</a></p>
+</body>
+</html>
