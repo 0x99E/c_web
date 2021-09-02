@@ -1,75 +1,75 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../style.css">
 </head>
 
 <body>
 <a name="top"></a>
-<h1><b>7. Багатовимірні масиви</b></h1>
-<h2>7.1. Теоретичні відомості</h2>
-<h3><span style="color: #00C">7.1.1. Оголошення багатовимірних масивів. Доступ до елементів</span><br>
+<h1><b>7. Р‘Р°РіР°С‚РѕРІРёРјС–СЂРЅС– РјР°СЃРёРІРё</b></h1>
+<h2>7.1. РўРµРѕСЂРµС‚РёС‡РЅС– РІС–РґРѕРјРѕСЃС‚С–</h2>
+<h3><span style="color: #00C">7.1.1. РћРіРѕР»РѕС€РµРЅРЅСЏ Р±Р°РіР°С‚РѕРІРёРјС–СЂРЅРёС… РјР°СЃРёРІС–РІ. Р”РѕСЃС‚СѓРї РґРѕ РµР»РµРјРµРЅС‚С–РІ</span><br>
 </h3>
-<p>Синтаксис оголошення  змінної матричного типу в мовах С/C++:<br>
-  <span class="light">&lt;тип елементів&gt;</span> &lt;ім&rsquo;я  матриці&gt; [&lt;кількість рядків&gt;][&lt;кількість стовпців&gt;]; <br>
-У цьому оголошенні <span class="light">&lt;тип  елементів&gt;</span> &mdash; будь- який тип  даних, окрім файлового типу; &lt;ім&rsquo;я матриці&gt; &mdash; деякий ідентифікатор; &lt;кількість  рядків&gt; і &lt;кількість  стовпців&gt; &mdash; константи, що  визначає розмірність матриці. Межі діапазону допустимих значень індексів рядків  і стовпців визначаються значеннями від 0 до&nbsp;  &lt;кількість рядків&gt;&ndash;1 та від 0 до &lt;кількість стовпців&gt;&ndash;1. Масиви, що мають більш ніж два виміри,  оголошуються в аналогічний спосіб.<br>
-Доступ до елементів  матриці здійснюється операцією індексування [] за двома індексами, які визначають номер рядка та  номер стовпця елемента. Синтаксис операції індексування є таким: <br>
-&lt;ім&rsquo;я масиву&gt;[&lt;номер  рядка&gt;][&lt;номер стовпця&gt;]<br>
+<p>РЎРёРЅС‚Р°РєСЃРёСЃ РѕРіРѕР»РѕС€РµРЅРЅСЏ  Р·РјС–РЅРЅРѕС— РјР°С‚СЂРёС‡РЅРѕРіРѕ С‚РёРїСѓ РІ РјРѕРІР°С… РЎ/C++:<br>
+  <span class="light">&lt;С‚РёРї РµР»РµРјРµРЅС‚С–РІ&gt;</span> &lt;С–Рј&rsquo;СЏ  РјР°С‚СЂРёС†С–&gt; [&lt;РєС–Р»СЊРєС–СЃС‚СЊ СЂСЏРґРєС–РІ&gt;][&lt;РєС–Р»СЊРєС–СЃС‚СЊ СЃС‚РѕРІРїС†С–РІ&gt;]; <br>
+РЈ С†СЊРѕРјСѓ РѕРіРѕР»РѕС€РµРЅРЅС– <span class="light">&lt;С‚РёРї  РµР»РµРјРµРЅС‚С–РІ&gt;</span> &mdash; Р±СѓРґСЊ- СЏРєРёР№ С‚РёРї  РґР°РЅРёС…, РѕРєСЂС–Рј С„Р°Р№Р»РѕРІРѕРіРѕ С‚РёРїСѓ; &lt;С–Рј&rsquo;СЏ РјР°С‚СЂРёС†С–&gt; &mdash; РґРµСЏРєРёР№ С–РґРµРЅС‚РёС„С–РєР°С‚РѕСЂ; &lt;РєС–Р»СЊРєС–СЃС‚СЊ  СЂСЏРґРєС–РІ&gt; С– &lt;РєС–Р»СЊРєС–СЃС‚СЊ  СЃС‚РѕРІРїС†С–РІ&gt; &mdash; РєРѕРЅСЃС‚Р°РЅС‚Рё, С‰Рѕ  РІРёР·РЅР°С‡Р°С” СЂРѕР·РјС–СЂРЅС–СЃС‚СЊ РјР°С‚СЂРёС†С–. РњРµР¶С– РґС–Р°РїР°Р·РѕРЅСѓ РґРѕРїСѓСЃС‚РёРјРёС… Р·РЅР°С‡РµРЅСЊ С–РЅРґРµРєСЃС–РІ СЂСЏРґРєС–РІ  С– СЃС‚РѕРІРїС†С–РІ РІРёР·РЅР°С‡Р°СЋС‚СЊСЃСЏ Р·РЅР°С‡РµРЅРЅСЏРјРё РІС–Рґ 0 РґРѕ&nbsp;  &lt;РєС–Р»СЊРєС–СЃС‚СЊ СЂСЏРґРєС–РІ&gt;&ndash;1 С‚Р° РІС–Рґ 0 РґРѕ &lt;РєС–Р»СЊРєС–СЃС‚СЊ СЃС‚РѕРІРїС†С–РІ&gt;&ndash;1. РњР°СЃРёРІРё, С‰Рѕ РјР°СЋС‚СЊ Р±С–Р»СЊС€ РЅС–Р¶ РґРІР° РІРёРјС–СЂРё,  РѕРіРѕР»РѕС€СѓСЋС‚СЊСЃСЏ РІ Р°РЅР°Р»РѕРіС–С‡РЅРёР№ СЃРїРѕСЃС–Р±.<br>
+Р”РѕСЃС‚СѓРї РґРѕ РµР»РµРјРµРЅС‚С–РІ  РјР°С‚СЂРёС†С– Р·РґС–Р№СЃРЅСЋС”С‚СЊСЃСЏ РѕРїРµСЂР°С†С–С”СЋ С–РЅРґРµРєСЃСѓРІР°РЅРЅСЏ [] Р·Р° РґРІРѕРјР° С–РЅРґРµРєСЃР°РјРё, СЏРєС– РІРёР·РЅР°С‡Р°СЋС‚СЊ РЅРѕРјРµСЂ СЂСЏРґРєР° С‚Р°  РЅРѕРјРµСЂ СЃС‚РѕРІРїС†СЏ РµР»РµРјРµРЅС‚Р°. РЎРёРЅС‚Р°РєСЃРёСЃ РѕРїРµСЂР°С†С–С— С–РЅРґРµРєСЃСѓРІР°РЅРЅСЏ С” С‚Р°РєРёРј: <br>
+&lt;С–Рј&rsquo;СЏ РјР°СЃРёРІСѓ&gt;[&lt;РЅРѕРјРµСЂ  СЂСЏРґРєР°&gt;][&lt;РЅРѕРјРµСЂ СЃС‚РѕРІРїС†СЏ&gt;]<br>
   <br>
 </p>
-<h3 style="color: #00C">7.1.2. Базові операції обробки двовимірних масивів</h3>
-<p>Перелік базових операцій  над матрицями та їх елементами: </p>
+<h3 style="color: #00C">7.1.2. Р‘Р°Р·РѕРІС– РѕРїРµСЂР°С†С–С— РѕР±СЂРѕР±РєРё РґРІРѕРІРёРјС–СЂРЅРёС… РјР°СЃРёРІС–РІ</h3>
+<p>РџРµСЂРµР»С–Рє Р±Р°Р·РѕРІРёС… РѕРїРµСЂР°С†С–Р№  РЅР°Рґ РјР°С‚СЂРёС†СЏРјРё С‚Р° С—С… РµР»РµРјРµРЅС‚Р°РјРё: </p>
 <ul>
-  <li>створення  нової матриці за заданим алгоритмом;</li>
-  <li>введення та  виведення матриць; </li>
-  <li>пошук  елементів матриці за певним критерієм;</li>
-  <li>визначення,  чи задовольняє матриця або окремі її елементи певній властивості;</li>
-  <li>виконання  певних операцій над компонентами матриць (переставлення рядків і стовпців,  множення матриць тощо).</li>
+  <li>СЃС‚РІРѕСЂРµРЅРЅСЏ  РЅРѕРІРѕС— РјР°С‚СЂРёС†С– Р·Р° Р·Р°РґР°РЅРёРј Р°Р»РіРѕСЂРёС‚РјРѕРј;</li>
+  <li>РІРІРµРґРµРЅРЅСЏ С‚Р°  РІРёРІРµРґРµРЅРЅСЏ РјР°С‚СЂРёС†СЊ; </li>
+  <li>РїРѕС€СѓРє  РµР»РµРјРµРЅС‚С–РІ РјР°С‚СЂРёС†С– Р·Р° РїРµРІРЅРёРј РєСЂРёС‚РµСЂС–С”Рј;</li>
+  <li>РІРёР·РЅР°С‡РµРЅРЅСЏ,  С‡Рё Р·Р°РґРѕРІРѕР»СЊРЅСЏС” РјР°С‚СЂРёС†СЏ Р°Р±Рѕ РѕРєСЂРµРјС– С—С— РµР»РµРјРµРЅС‚Рё РїРµРІРЅС–Р№ РІР»Р°СЃС‚РёРІРѕСЃС‚С–;</li>
+  <li>РІРёРєРѕРЅР°РЅРЅСЏ  РїРµРІРЅРёС… РѕРїРµСЂР°С†С–Р№ РЅР°Рґ РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё РјР°С‚СЂРёС†СЊ (РїРµСЂРµСЃС‚Р°РІР»РµРЅРЅСЏ СЂСЏРґРєС–РІ С– СЃС‚РѕРІРїС†С–РІ,  РјРЅРѕР¶РµРЅРЅСЏ РјР°С‚СЂРёС†СЊ С‚РѕС‰Рѕ).</li>
 </ul>
-<p><strong>Введення матриці:</strong><br>
+<p><strong>Р’РІРµРґРµРЅРЅСЏ РјР°С‚СЂРёС†С–:</strong><br>
   <span class="light">int</span> a[5][5];<br>
   <span class="light">int</span> main(){<br>
-  <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//зовнішній&nbsp; цикл по рядках</span><br>
-  &nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//внутрішній цикл по стовпцях</span><br>
-  &nbsp;&nbsp;&nbsp; cin&gt;&gt;a[i][j];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//із клавіатури елементи</span><br>
-  }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //вводяться  через символ пробілу</span><br>
+  <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//Р·РѕРІРЅС–С€РЅС–Р№&nbsp; С†РёРєР» РїРѕ СЂСЏРґРєР°С…</span><br>
+  &nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//РІРЅСѓС‚СЂС–С€РЅС–Р№ С†РёРєР» РїРѕ СЃС‚РѕРІРїС†СЏС…</span><br>
+  &nbsp;&nbsp;&nbsp; cin&gt;&gt;a[i][j];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//С–Р· РєР»Р°РІС–Р°С‚СѓСЂРё РµР»РµРјРµРЅС‚Рё</span><br>
+  }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //РІРІРѕРґСЏС‚СЊСЃСЏ  С‡РµСЂРµР· СЃРёРјРІРѕР» РїСЂРѕР±С–Р»Сѓ</span><br>
   <br>
-  Під час виведення матриці  переводити курсор на новий рядок слід лише після виведення всіх елементів  поточного рядка:<br>
+  РџС–Рґ С‡Р°СЃ РІРёРІРµРґРµРЅРЅСЏ РјР°С‚СЂРёС†С–  РїРµСЂРµРІРѕРґРёС‚Рё РєСѓСЂСЃРѕСЂ РЅР° РЅРѕРІРёР№ СЂСЏРґРѕРє СЃР»С–Рґ Р»РёС€Рµ РїС–СЃР»СЏ РІРёРІРµРґРµРЅРЅСЏ РІСЃС–С… РµР»РµРјРµРЅС‚С–РІ  РїРѕС‚РѕС‡РЅРѕРіРѕ СЂСЏРґРєР°:<br>
   <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++) <br>
   {<br>
   &nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp; cout&lt;&lt;a[i][j]&lt;&lt;&quot;  &quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //вивести елементи  рядка</span><br>
-  &nbsp; cout&lt;&lt;endl;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //перевести курсор на новий  рядок</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; cout&lt;&lt;a[i][j]&lt;&lt;&quot;  &quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //РІРёРІРµСЃС‚Рё РµР»РµРјРµРЅС‚Рё  СЂСЏРґРєР°</span><br>
+  &nbsp; cout&lt;&lt;endl;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //РїРµСЂРµРІРµСЃС‚Рё РєСѓСЂСЃРѕСЂ РЅР° РЅРѕРІРёР№  СЂСЏРґРѕРє</span><br>
   }&nbsp;&nbsp; <br>
   <br>
-  <strong>Ініціалізація елементів  матриці деякими значеннями:</strong><br>
+  <strong>Р†РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ РµР»РµРјРµРЅС‚С–РІ  РјР°С‚СЂРёС†С– РґРµСЏРєРёРјРё Р·РЅР°С‡РµРЅРЅСЏРјРё:</strong><br>
   <span class="light">int</span> a[5][5];<br>
   <span class="light">int</span> main(){<br>
   &nbsp;&nbsp; <span class="light">for</span>(<span class="light">int</span> i=0;i&lt;5;i++) <br>
   &nbsp;&nbsp;&nbsp; <span class="light">for</span>(<span class="light">int</span> j=0;j&lt;5;j++) <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=10;<span class="comments"> // альтернативи:  a[i][j]=rand()%20;</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=i*j; тощо</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=10;<span class="comments"> // Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРё:  a[i][j]=rand()%20;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a[i][j]=i*j; С‚РѕС‰Рѕ</span><br>
   }<br>
   <br>
-  <strong>Пошук значення та  індексів максимального елемента матриці:</strong><br>
-  &nbsp;&nbsp; max=a[0][0];  <span class="comments">//початкове значення максимального елемента</span><br>
+  <strong>РџРѕС€СѓРє Р·РЅР°С‡РµРЅРЅСЏ С‚Р°  С–РЅРґРµРєСЃС–РІ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ РµР»РµРјРµРЅС‚Р° РјР°С‚СЂРёС†С–:</strong><br>
+  &nbsp;&nbsp; max=a[0][0];  <span class="comments">//РїРѕС‡Р°С‚РєРѕРІРµ Р·РЅР°С‡РµРЅРЅСЏ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ РµР»РµРјРµРЅС‚Р°</span><br>
   &nbsp;&nbsp; <span class="light">for</span>(<span class="light"> int</span> i=0;i&lt;n;i++)<br>
   &nbsp;&nbsp;&nbsp;&nbsp;<span class="light"> for</span>( <span class="light">int</span> j=0;j&lt;n;j++)<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="light">if</span> ( max &lt; a[i][j])<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; max=a[i][j];&nbsp;<span class="comments"> //запам&rsquo;ятати максимальний елемент</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imax=i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//та його індекси</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; max=a[i][j];&nbsp;<span class="comments"> //Р·Р°РїР°Рј&rsquo;СЏС‚Р°С‚Рё РјР°РєСЃРёРјР°Р»СЊРЅРёР№ РµР»РµРјРµРЅС‚</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imax=i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//С‚Р° Р№РѕРіРѕ С–РЅРґРµРєСЃРё</span><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jmax=j;<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
   <br>
-  <strong>Перестановка рядків або  стовпців </strong><br>
-  <span class="light">for</span>(i=0;i&lt;n;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&nbsp;//цикл по рядках</span><br>
+  <strong>РџРµСЂРµСЃС‚Р°РЅРѕРІРєР° СЂСЏРґРєС–РІ Р°Р±Рѕ  СЃС‚РѕРІРїС†С–РІ </strong><br>
+  <span class="light">for</span>(i=0;i&lt;n;i++)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&nbsp;//С†РёРєР» РїРѕ СЂСЏРґРєР°С…</span><br>
   {<br>
-  &nbsp; tmp=a[i][0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //альтернатива для цілих значень:</span><br>
+  &nbsp; tmp=a[i][0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments"> //Р°Р»СЊС‚РµСЂРЅР°С‚РёРІР° РґР»СЏ С†С–Р»РёС… Р·РЅР°С‡РµРЅСЊ:</span><br>
   &nbsp; a[i][0]=a[i][4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//a[i][4]^=a[i][0]^=a[i][4]^=a[i][0];</span><br>
   &nbsp; a[i][4]=tmp;<br>
   }</p>
-<p><a href="#top">Вверх</a></p>
+<p><a href="#top">Р’РІРµСЂС…</a></p>
 </body>
 </html>

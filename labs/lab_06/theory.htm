@@ -1,79 +1,79 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../style.css">
 </head>
 
 <body>
 <a name="top"></a>
-<h1><b>6. Одновимірні масиви</b></h1>
-<em>Мета  роботи:</em>
+<h1><b>6. РћРґРЅРѕРІРёРјС–СЂРЅС– РјР°СЃРёРІРё</b></h1>
+<em>РњРµС‚Р°  СЂРѕР±РѕС‚Рё:</em>
 <ol>
   <li>
-    Ознайомитися  з особливостями типу масиву;
+    РћР·РЅР°Р№РѕРјРёС‚РёСЃСЏ  Р· РѕСЃРѕР±Р»РёРІРѕСЃС‚СЏРјРё С‚РёРїСѓ РјР°СЃРёРІСѓ;
   </li>
   <li>
-    Опанувати технологію застосування масивів даних;
+    РћРїР°РЅСѓРІР°С‚Рё С‚РµС…РЅРѕР»РѕРіС–СЋ Р·Р°СЃС‚РѕСЃСѓРІР°РЅРЅСЏ РјР°СЃРёРІС–РІ РґР°РЅРёС…;
   </li>
   <li>
-    Навчитися розробляти алгоритми та програми із застосуванням одновимірних масивів
+    РќР°РІС‡РёС‚РёСЃСЏ СЂРѕР·СЂРѕР±Р»СЏС‚Рё Р°Р»РіРѕСЂРёС‚РјРё С‚Р° РїСЂРѕРіСЂР°РјРё С–Р· Р·Р°СЃС‚РѕСЃСѓРІР°РЅРЅСЏРј РѕРґРЅРѕРІРёРјС–СЂРЅРёС… РјР°СЃРёРІС–РІ
   </li>
 </ol>
-<h2>6.1. Теоретичні відомості</h2>
-<p><em>Тип масиву</em>&nbsp;&mdash; це  структурований тип даних, множина допустимих значень котрого складається з усіх  масивів, для яких зафіксовано:</p>
+<h2>6.1. РўРµРѕСЂРµС‚РёС‡РЅС– РІС–РґРѕРјРѕСЃС‚С–</h2>
+<p><em>РўРёРї РјР°СЃРёРІСѓ</em>&nbsp;&mdash; С†Рµ  СЃС‚СЂСѓРєС‚СѓСЂРѕРІР°РЅРёР№ С‚РёРї РґР°РЅРёС…, РјРЅРѕР¶РёРЅР° РґРѕРїСѓСЃС‚РёРјРёС… Р·РЅР°С‡РµРЅСЊ РєРѕС‚СЂРѕРіРѕ СЃРєР»Р°РґР°С”С‚СЊСЃСЏ Р· СѓСЃС–С…  РјР°СЃРёРІС–РІ, РґР»СЏ СЏРєРёС… Р·Р°С„С–РєСЃРѕРІР°РЅРѕ:</p>
 <ul>
-  <li>розмірність;</li>
-  <li>базовий тип;</li>
-  <li>індексний  тип;</li>
-  <li>множину  значень індексу.</li>
+  <li>СЂРѕР·РјС–СЂРЅС–СЃС‚СЊ;</li>
+  <li>Р±Р°Р·РѕРІРёР№ С‚РёРї;</li>
+  <li>С–РЅРґРµРєСЃРЅРёР№  С‚РёРї;</li>
+  <li>РјРЅРѕР¶РёРЅСѓ  Р·РЅР°С‡РµРЅСЊ С–РЅРґРµРєСЃСѓ.</li>
 </ul>
-<p>З точки зору математики  одновимірний масив &mdash; це вектор. Змінну, що матиме тип масиву, можна оголосити з  використанням такого синтаксису:<br>
-  <span class="light">&lt;тип елементів&gt;</span> &lt;ім&rsquo;я  масиву&gt; [&lt;кількість елементів&gt;]; <br>
-  <h3>6.1.1. Основні властивості  масивів:</h3></p>
+<p>Р— С‚РѕС‡РєРё Р·РѕСЂСѓ РјР°С‚РµРјР°С‚РёРєРё  РѕРґРЅРѕРІРёРјС–СЂРЅРёР№ РјР°СЃРёРІ &mdash; С†Рµ РІРµРєС‚РѕСЂ. Р—РјС–РЅРЅСѓ, С‰Рѕ РјР°С‚РёРјРµ С‚РёРї РјР°СЃРёРІСѓ, РјРѕР¶РЅР° РѕРіРѕР»РѕСЃРёС‚Рё Р·  РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏРј С‚Р°РєРѕРіРѕ СЃРёРЅС‚Р°РєСЃРёСЃСѓ:<br>
+  <span class="light">&lt;С‚РёРї РµР»РµРјРµРЅС‚С–РІ&gt;</span> &lt;С–Рј&rsquo;СЏ  РјР°СЃРёРІСѓ&gt; [&lt;РєС–Р»СЊРєС–СЃС‚СЊ РµР»РµРјРµРЅС‚С–РІ&gt;]; <br>
+  <h3>6.1.1. РћСЃРЅРѕРІРЅС– РІР»Р°СЃС‚РёРІРѕСЃС‚С–  РјР°СЃРёРІС–РІ:</h3></p>
 <ul>
-  <li>однорідність  &mdash; усі елементи належать одному типу; </li>
-  <li>сталість &mdash;  вимірність масиву задається під час його оголошення і не змінюється протягом  роботи з ним;</li>
-  <li>рівнодоступність  &mdash; спосіб доступу до всіх елементів є однаковим;</li>
-  <li>послідовність  розташування &mdash; усі елементи масиву розташовані в послідовних комірках  оперативної пам&rsquo;яті;</li>
-  <li>індексованість  &mdash; елементи однозначно ідентифікуються своїми індексами;</li>
-  <li>упорядкованість  індексу &mdash; індексний тип має бути простим порядковим типом даних.</li>
+  <li>РѕРґРЅРѕСЂС–РґРЅС–СЃС‚СЊ  &mdash; СѓСЃС– РµР»РµРјРµРЅС‚Рё РЅР°Р»РµР¶Р°С‚СЊ РѕРґРЅРѕРјСѓ С‚РёРїСѓ; </li>
+  <li>СЃС‚Р°Р»С–СЃС‚СЊ &mdash;  РІРёРјС–СЂРЅС–СЃС‚СЊ РјР°СЃРёРІСѓ Р·Р°РґР°С”С‚СЊСЃСЏ РїС–Рґ С‡Р°СЃ Р№РѕРіРѕ РѕРіРѕР»РѕС€РµРЅРЅСЏ С– РЅРµ Р·РјС–РЅСЋС”С‚СЊСЃСЏ РїСЂРѕС‚СЏРіРѕРј  СЂРѕР±РѕС‚Рё Р· РЅРёРј;</li>
+  <li>СЂС–РІРЅРѕРґРѕСЃС‚СѓРїРЅС–СЃС‚СЊ  &mdash; СЃРїРѕСЃС–Р± РґРѕСЃС‚СѓРїСѓ РґРѕ РІСЃС–С… РµР»РµРјРµРЅС‚С–РІ С” РѕРґРЅР°РєРѕРІРёРј;</li>
+  <li>РїРѕСЃР»С–РґРѕРІРЅС–СЃС‚СЊ  СЂРѕР·С‚Р°С€СѓРІР°РЅРЅСЏ &mdash; СѓСЃС– РµР»РµРјРµРЅС‚Рё РјР°СЃРёРІСѓ СЂРѕР·С‚Р°С€РѕРІР°РЅС– РІ РїРѕСЃР»С–РґРѕРІРЅРёС… РєРѕРјС–СЂРєР°С…  РѕРїРµСЂР°С‚РёРІРЅРѕС— РїР°Рј&rsquo;СЏС‚С–;</li>
+  <li>С–РЅРґРµРєСЃРѕРІР°РЅС–СЃС‚СЊ  &mdash; РµР»РµРјРµРЅС‚Рё РѕРґРЅРѕР·РЅР°С‡РЅРѕ С–РґРµРЅС‚РёС„С–РєСѓСЋС‚СЊСЃСЏ СЃРІРѕС—РјРё С–РЅРґРµРєСЃР°РјРё;</li>
+  <li>СѓРїРѕСЂСЏРґРєРѕРІР°РЅС–СЃС‚СЊ  С–РЅРґРµРєСЃСѓ &mdash; С–РЅРґРµРєСЃРЅРёР№ С‚РёРї РјР°С” Р±СѓС‚Рё РїСЂРѕСЃС‚РёРј РїРѕСЂСЏРґРєРѕРІРёРј С‚РёРїРѕРј РґР°РЅРёС….</li>
 </ul>
-<p><h3>6.1.2. Базовими операціями  обробки масивів є:</h3></p>
+<p><h3>6.1.2. Р‘Р°Р·РѕРІРёРјРё РѕРїРµСЂР°С†С–СЏРјРё  РѕР±СЂРѕР±РєРё РјР°СЃРёРІС–РІ С”:</h3></p>
 <ul>
-  <li>введення та  виведення масиву;</li>
-  <li>ініціалізація  масиву;</li>
-  <li>копіювання  масиву;</li>
-  <li>пошук  максимального або мінімального елемента;</li>
-  <li>обчислення  узагальнювальних характеристик (сум елементів, їх добутків);</li>
-  <li>пошук  заданого елемента;</li>
-  <li>перестановка  елементів або обмін значеннями між елементами масиву;</li>
-  <li>вставка та  видалення елемента.</li>
+  <li>РІРІРµРґРµРЅРЅСЏ С‚Р°  РІРёРІРµРґРµРЅРЅСЏ РјР°СЃРёРІСѓ;</li>
+  <li>С–РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ  РјР°СЃРёРІСѓ;</li>
+  <li>РєРѕРїС–СЋРІР°РЅРЅСЏ  РјР°СЃРёРІСѓ;</li>
+  <li>РїРѕС€СѓРє  РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р°Р±Рѕ РјС–РЅС–РјР°Р»СЊРЅРѕРіРѕ РµР»РµРјРµРЅС‚Р°;</li>
+  <li>РѕР±С‡РёСЃР»РµРЅРЅСЏ  СѓР·Р°РіР°Р»СЊРЅСЋРІР°Р»СЊРЅРёС… С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє (СЃСѓРј РµР»РµРјРµРЅС‚С–РІ, С—С… РґРѕР±СѓС‚РєС–РІ);</li>
+  <li>РїРѕС€СѓРє  Р·Р°РґР°РЅРѕРіРѕ РµР»РµРјРµРЅС‚Р°;</li>
+  <li>РїРµСЂРµСЃС‚Р°РЅРѕРІРєР°  РµР»РµРјРµРЅС‚С–РІ Р°Р±Рѕ РѕР±РјС–РЅ Р·РЅР°С‡РµРЅРЅСЏРјРё РјС–Р¶ РµР»РµРјРµРЅС‚Р°РјРё РјР°СЃРёРІСѓ;</li>
+  <li>РІСЃС‚Р°РІРєР° С‚Р°  РІРёРґР°Р»РµРЅРЅСЏ РµР»РµРјРµРЅС‚Р°.</li>
 </ul>
-<p>Базові операції обробки  масивів зручно реалізовувати у вигляді функцій, що згодом можуть бути  використані як &laquo;архітектурні блоки&raquo; при розв&rsquo;язанні більш складних задач.<br>
-  <span class="comments">//ввести масив</span><br>
+<p>Р‘Р°Р·РѕРІС– РѕРїРµСЂР°С†С–С— РѕР±СЂРѕР±РєРё  РјР°СЃРёРІС–РІ Р·СЂСѓС‡РЅРѕ СЂРµР°Р»С–Р·РѕРІСѓРІР°С‚Рё Сѓ РІРёРіР»СЏРґС– С„СѓРЅРєС†С–Р№, С‰Рѕ Р·РіРѕРґРѕРј РјРѕР¶СѓС‚СЊ Р±СѓС‚Рё  РІРёРєРѕСЂРёСЃС‚Р°РЅС– СЏРє &laquo;Р°СЂС…С–С‚РµРєС‚СѓСЂРЅС– Р±Р»РѕРєРё&raquo; РїСЂРё СЂРѕР·РІ&rsquo;СЏР·Р°РЅРЅС– Р±С–Р»СЊС€ СЃРєР»Р°РґРЅРёС… Р·Р°РґР°С‡.<br>
+  <span class="comments">//РІРІРµСЃС‚Рё РјР°СЃРёРІ</span><br>
   <span class="light">for</span>( i=0;i&lt;n;i++)<br>
   &nbsp;&nbsp;&nbsp; cin&gt;&gt;mas[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
   &nbsp; cout&lt;&lt;&quot;Entered  array&quot;&lt;&lt;endl;</p>
-<p><span class="comments">//вивести масив</span><br>
+<p><span class="comments">//РІРёРІРµСЃС‚Рё РјР°СЃРёРІ</span><br>
   &nbsp; <span class="light">for</span>( i=0;i&lt;n;i++) <br>
   &nbsp;&nbsp;&nbsp; cout&lt;&lt;mas[i]&lt;&lt;&quot;&nbsp; &quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
 &nbsp; cout&lt;&lt;endl;</p>
-<p><span class="comments">//генерація масиву</span><br>
-  &nbsp;  srand((<span class="comments"><span class="light">unsigned</span></span>)time( NULL )); <span class="comments">//ініціалізація генератора</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">//випадкових чисел</span><br>
-  &nbsp; <span class="light">for</span>(i=0;i&lt;n;++i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//генерація псевдовипадкових чисел в  діапазоні</span><br>
-  &nbsp;&nbsp;&nbsp; mas[i]=rand()%30;&nbsp;&nbsp;&nbsp; <span class="comments"><span class="light">//від 0 до 29</span></span><br>
+<p><span class="comments">//РіРµРЅРµСЂР°С†С–СЏ РјР°СЃРёРІСѓ</span><br>
+  &nbsp;  srand((<span class="comments"><span class="light">unsigned</span></span>)time( NULL )); <span class="comments">//С–РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ РіРµРЅРµСЂР°С‚РѕСЂР°</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">//РІРёРїР°РґРєРѕРІРёС… С‡РёСЃРµР»</span><br>
+  &nbsp; <span class="light">for</span>(i=0;i&lt;n;++i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//РіРµРЅРµСЂР°С†С–СЏ РїСЃРµРІРґРѕРІРёРїР°РґРєРѕРІРёС… С‡РёСЃРµР» РІ  РґС–Р°РїР°Р·РѕРЅС–</span><br>
+  &nbsp;&nbsp;&nbsp; mas[i]=rand()%30;&nbsp;&nbsp;&nbsp; <span class="comments"><span class="light">//РІС–Рґ 0 РґРѕ 29</span></span><br>
   <br>
-  <span class="comments">// пошук максимального елемента</span><br>
-  &nbsp;&nbsp;  max=mark[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//максимальної</span><br>
-  &nbsp;&nbsp;<span class="light"> for</span>(i=1;i&lt;n;i++) <span class="light">//пошук  мінімальної та максимальної оцінок</span><br>
+  <span class="comments">// РїРѕС€СѓРє РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ РµР»РµРјРµРЅС‚Р°</span><br>
+  &nbsp;&nbsp;  max=mark[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//РјР°РєСЃРёРјР°Р»СЊРЅРѕС—</span><br>
+  &nbsp;&nbsp;<span class="light"> for</span>(i=1;i&lt;n;i++) <span class="light">//РїРѕС€СѓРє  РјС–РЅС–РјР°Р»СЊРЅРѕС— С‚Р° РјР°РєСЃРёРјР°Р»СЊРЅРѕС— РѕС†С–РЅРѕРє</span><br>
   &nbsp;&nbsp; {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="light"> if</span> (max&lt;mark[i])  max=mark[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//модифікація</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//поточного максимуму</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="light"> if</span> (max&lt;mark[i])  max=mark[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comments">//РјРѕРґРёС„С–РєР°С†С–СЏ</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="comments">//РїРѕС‚РѕС‡РЅРѕРіРѕ РјР°РєСЃРёРјСѓРјСѓ</span><br>
   &nbsp;&nbsp; }<br>
   <br>
-  <span class="comments">//бульбашкове сортування</span><br>
+  <span class="comments">//Р±СѓР»СЊР±Р°С€РєРѕРІРµ СЃРѕСЂС‚СѓРІР°РЅРЅСЏ</span><br>
   <span class="light">for</span>(i=0;i&lt;n-1;i++)<br>
   &nbsp;&nbsp;  <span class="light">for</span>(j=i+1;j&lt;n;j++)<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="light">if</span> (mas[i]&gt;mas[j])<br>
@@ -81,6 +81,6 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp=mas[i];<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mas[i]=mas[j];<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mas[j]=tmp;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p><p><a href="#top">Вверх</a></p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p><p><a href="#top">Р’РІРµСЂС…</a></p>
 </body>
 </html>
