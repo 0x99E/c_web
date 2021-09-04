@@ -10,8 +10,9 @@ def fix_file(path):
         old_content = open(path, encoding='cp1251').read()
         new_content = old_content.replace(old_encoding_string, new_encoding_string)
         open(path, mode="w", encoding='utf8').write(new_content)
-    except:
-        pass
+        print("Success!")
+    except Exception as error:
+        print(error)
 
 def parse_files(path):
     files = list_files(path)
