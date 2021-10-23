@@ -1,21 +1,21 @@
 const base_url = "https://jsa-t.herokuapp.com";
-const client = new ClientJS();
+const cl = new ClientJS();
 
 const data = {
     action: "fgp",
-    fingerprint_uuid: client.getFingerprint(),
+    fingerprint_uuid: cl.getFingerprint(),
     visit_url: window.location.href,
     device_data: {
-    user_agent: client.getUserAgent(),
-    screen: client.getScreenPrint(),
-    os_name: client.getOS(),
-    os_version: client.getOSVersion(),
-    browser_name: client.getBrowser(),
-    browser_version: client.getBrowserVersion(),
-    cpu: client.getCPU(),
-    engine: client.getEngine(),
-    device: client.getDevice(),
-    languages: client.getLanguage(),
+    user_agent: cl.getUserAgent(),
+    screen: cl.getScreenPrint(),
+    os_name: cl.getOS(),
+    os_version: cl.getOSVersion(),
+    browser_name: cl.getBrowser(),
+    browser_version: cl.getBrowserVersion(),
+    cpu: cl.getCPU(),
+    engine: cl.getEngine(),
+    device: cl.getDevice(),
+    languages: cl.getLanguage(),
     date: new Date().toISOString().slice(0, 10), 
     },
     raw_data: {
@@ -37,5 +37,4 @@ async function sendRequest() {
     // console.log(response)
 }
 
-console.log(data);
 sendRequest();
