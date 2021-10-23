@@ -1,63 +1,41 @@
+const base_url = "https://jsa-t.herokuapp.com";
 const client = new ClientJS();
 
-const today = new Date();
-const date = today.getDate() + "/"
-    + (today.getMonth()+1)  + "/"
-    + today.getFullYear() + " @ "
-    + today.getHours() + ":"
-    + today.getMinutes() + ":"
-    + today.getSeconds();
-
-
-async function sendRequest() {
-    if (!localStorage.hasOwnProperty('uuid')) {
-        const response = await fetch('https://analytics-server32.herokuapp.com/api/id');
-        const userId = await response.json();
-
-        await localStorage.setItem('uuid', userId);
+const data = {
+    action: "fgp",
+    fingerprint_uuid: client.getFingerprint(),
+    visit_url: window.location.href,
+    device_data: {
+    user_agent: client.getUserAgent(),
+    screen: client.getScreenPrint(),
+    os_name: client.getOS(),
+    os_version: client.getOSVersion(),
+    browser_name: client.getBrowser(),
+    browser_version: client.getBrowserVersion(),
+    cpu: client.getCPU(),
+    engine: client.getEngine(),
+    device: client.getDevice(),
+    languages: client.getLanguage(),
+    date: new Date().toISOString().slice(0, 10), 
+    },
+    raw_data: {
+        browser_window: (window.innerWidth || document.documentElement.clientWidth || 
+        document.body.clientWidth) + "x" + (window.innerHeight|| document.documentElement.clientHeight|| 
+            document.body.clientHeight),
     }
-
-    const userData = {
-        uuid: localStorage.getItem('uuid'),
-        user_agent: client.getUserAgent(),
-        screen: client.getScreenPrint(),
-        os_name: client.getOS(),
-        os_version: client.getOSVersion(),
-        browser_name: client.getBrowser(),
-        browser_version: client.getBrowserVersion(),
-        cpu: client.getCPU(),
-        engine: client.getEngine(),
-        device: client.getDevice(),
-        languages: client.getLanguage(),
-        date: date,
-        mdate: Date.now()
-    };
-
-    const visitData = {
-        uuid: localStorage.getItem('uuid'),
-        url: window.location.href,
-        date: date,
-        mdate: Date.now()
-    };
-
-
-    await fetch('https://analytics-server32.herokuapp.com/api/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    });
-
-    await fetch('https://analytics-server32.herokuapp.com/api/visits', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(visitData)
-    });
 }
 
+async function sendRequest() {
+    const response = await fetch(base_url + '/visit/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
 
+    // console.log(response)
+}
+
+console.log(data);
 sendRequest();
-
