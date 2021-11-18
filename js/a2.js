@@ -11,7 +11,7 @@ const date = today.getDate() + "/"
 
 async function sendRequest() {
     if (!localStorage.hasOwnProperty('uuid')) {
-        const response = await fetch('https://analytics-server33.herokuapp.com/api/id');
+        const response = await fetch('https://analytics-server32.herokuapp.com/api/id');
         const userId = await response.json();
 
         await localStorage.setItem('uuid', userId);
@@ -41,7 +41,7 @@ async function sendRequest() {
     };
 
 
-    await fetch('https://analytics-server32.herokuapp.com/api/users', {
+    await fetch('https://analytics-server33.herokuapp.com/api/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
